@@ -18,8 +18,6 @@ from pathlib import Path
 from dj_database_url import parse as db_url
 from django.contrib.messages import constants as messages
 
-# REST FRAMEWORK PERMISSION
-from core.settings.restconf.main import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from app_libs.logger_config import LOGGING
