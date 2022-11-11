@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static crispy_forms_tags %}
+{% block title %}{{ title }} || {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+    <!-- Container -->
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <div class="error-block">
+                    <span>404</span>
+                    <h2>Oops! That page can’t be found</h2>
+                    <p>Sorry, but the page you were looking for could not be found.</p>
+                    <a href="index.html" title="Back Home">Back Home</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- Container /- -->
+{% endblock %}

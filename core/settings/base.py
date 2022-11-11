@@ -52,6 +52,8 @@ INSTALLED_APPS = [
 
 LOCALE_APPS = [
     'apps.blog',
+    'apps.about',
+    'apps.contact',
 ]
 
 THIRD_PARTY_APPS = [
