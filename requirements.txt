@@ -9,3 +9,4 @@ psycopg2==2.9.3
 psycopg2-binary==2.9.3
 django-widget-tweaks==1.4.12
 django-crispy-forms==1.14.0
+django-ckeditor==6.5.1

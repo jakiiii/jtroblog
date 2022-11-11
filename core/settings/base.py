@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 ]
 
 LOCALE_APPS = [
+    'apps.accounts',
     'apps.blog',
     'apps.about',
     'apps.contact',
@@ -59,9 +60,15 @@ LOCALE_APPS = [
 THIRD_PARTY_APPS = [
     'widget_tweaks',
     'crispy_forms',
+    'taggit',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 INSTALLED_APPS += LOCALE_APPS + THIRD_PARTY_APPS
+
+# Custom User Auth
+AUTH_USER_MODEL = 'accounts.User'
 
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -178,6 +185,19 @@ MESSAGE_TAGS = {
     messages.DEBUG: 'alert alert-info',
 }
 
+# CkEditor Upload path
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+# CkEditor Custom Configuration
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'width': '100%',
+        'extraPlugins': ','.join(['codesnippet']),
+        # Remove Dialog Tabs
+        'removeDialogTabs': 'table:advanced;image:Link',
+    },
+}
 
 # Logger setup
 logging.config.dictConfig(LOGGING)

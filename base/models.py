@@ -12,8 +12,8 @@ class BaseModel(models.Model):
         POSTPONED = 'postponed', _('postponed')
         ARCHIVED = 'archived', _('archived')
 
-    created_by = models.ForeignKey(User, on_delete=models.RESTRICT, related_name="%(class)s_created_by")
-    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="%(class)s_created_by")
+    created_by = models.ForeignKey(User, on_delete=models.RESTRICT, related_name="post_create")
+    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="post_update")
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
 
