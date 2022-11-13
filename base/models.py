@@ -7,10 +7,10 @@ User = get_user_model()
 
 class BaseModel(models.Model):
     class StatusChoices(models.TextChoices):
-        PUBLISHED = 'published', _('published')
-        UNPUBLISHED = 'unpublished', _('unpublished')
-        POSTPONED = 'postponed', _('postponed')
-        ARCHIVED = 'archived', _('archived')
+        PUBLISHED = 'PUB', _('Published')
+        UNPUBLISHED = 'UNPUB', _('Unpublished')
+        DRAFT = 'DR', _('Draft')
+        ARCHIVED = 'ARC', _('Archived')
 
     created_by = models.ForeignKey(User, on_delete=models.RESTRICT, related_name="post_create")
     updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="post_update")

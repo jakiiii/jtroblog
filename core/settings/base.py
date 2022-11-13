@@ -187,6 +187,7 @@ MESSAGE_TAGS = {
 
 # CkEditor Upload path
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
 
 # CkEditor Custom Configuration
 CKEDITOR_CONFIGS = {
