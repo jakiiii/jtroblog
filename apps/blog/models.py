@@ -1,6 +1,6 @@
 from django.db import models
+from django.conf import settings
 from django.utils import timezone
-from django.contrib.auth import get_user_model
 
 from base.models import BaseModel
 
@@ -8,7 +8,7 @@ from taggit.managers import TaggableManager
 from ckeditor_uploader.fields import RichTextUploadingField
 
 from apps.blog.utils import post_image_directory_path
-User = get_user_model()
+User = settings.AUTH_USER_MODEL
 
 
 class Post(BaseModel):
@@ -46,7 +46,7 @@ class Post(BaseModel):
     )
 
     def __str__(self):
-        return self.tags
+        return self.title
 
     class Meta:
         ordering = ('-published',)
