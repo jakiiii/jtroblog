@@ -8,5 +8,5 @@ app_name = 'blog'
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('detail/', PostDetailView.as_view(), name='post-detail'),
+    path('detail/<str:slug>/', PostDetailView.as_view(), name='post_detail'),
 ]

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.conf import settings
 from django.utils import timezone
 
@@ -9,6 +10,11 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 from apps.blog.utils import post_image_directory_path
 User = settings.AUTH_USER_MODEL
+
+
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(status=Post.StatusChoices.PUBLISHED)
 
 
 class Post(BaseModel):
@@ -41,7 +47,7 @@ class Post(BaseModel):
     slug = models.SlugField(
         max_length=500
     )
-    published = models.DateTimeField(
+    publish = models.DateTimeField(
         default=timezone.now
     )
     status = models.CharField(
@@ -49,14 +55,19 @@ class Post(BaseModel):
         choices=BaseModel.StatusChoices.choices,
         default=BaseModel.StatusChoices.PUBLISHED
     )
+    objects = models.Manager()
+    published = PublishedManager()
 
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', kwargs={'slug': self.slug})
+
     class Meta:
-        ordering = ('-published',)
+        ordering = ('-publish',)
         indexes = [
-            models.Index(fields=['-published']),
+            models.Index(fields=['-publish']),
         ]
         verbose_name = "Blog Post"
         verbose_name_plural = "Blog Posts"
