@@ -20,6 +20,11 @@ class Post(BaseModel):
     title = models.CharField(
         max_length=255,
     )
+    category = models.ForeignKey(
+        'category.Category',
+        on_delete=models.CASCADE,
+        related_name='categories'
+    )
     cover = models.ImageField(
         upload_to=post_image_directory_path,
         null=True,

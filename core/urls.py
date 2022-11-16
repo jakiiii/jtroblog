@@ -14,6 +14,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', include('apps.about.urls', namespace='about')),
     path('contact/', include('apps.contact.urls', namespace='contact')),
+    path('', include('apps.category.urls', namespace='category')),
     path('', include('apps.blog.urls', namespace='blog')),
 
     # path('ckeditor/', include('ckeditor_uploader.urls')),
