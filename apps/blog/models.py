@@ -44,11 +44,12 @@ class Post(BaseModel):
         default=False
     )
     tags = TaggableManager()
-    slug = models.SlugField(
-        max_length=500
-    )
     publish = models.DateTimeField(
         default=timezone.now
+    )
+    slug = models.SlugField(
+        max_length=500,
+        unique_for_date='publish'
     )
     status = models.CharField(
         max_length=6,
@@ -62,7 +63,12 @@ class Post(BaseModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail', kwargs={'slug': self.slug})
+        return reverse('blog:post_detail', kwargs={
+            'slug': self.slug,
+            'year': self.publish.year,
+            'month': self.publish.month,
+            'day': self.publish.day
+        })
 
     class Meta:
         ordering = ('-publish',)
