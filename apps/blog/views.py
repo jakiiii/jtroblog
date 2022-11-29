@@ -7,6 +7,7 @@ from taggit.models import Tag
 from base.models import BaseModel
 from apps.blog.models import Post
 from apps.category.models import Category
+from apps.feature.models import SocialMedia, ExtendBlog
 
 
 class HomeView(ListView):
@@ -18,10 +19,12 @@ class HomeView(ListView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['title'] = "Home"
-        context['trending_post'] = Post.objects.filter(is_trending=True, status=Post.StatusChoices.PUBLISHED).order_by('-created_at')
+        context['trending_post'] = Post.objects.filter(is_trending=True, status=Post.StatusChoices.PUBLISHED).order_by('-created_at')[:10]
+        context['slider_context'] = Post.objects.filter(is_cover=True, status=Post.StatusChoices.PUBLISHED).order_by('-created_at')[:3]
+        context['feature_post'] = Post.objects.filter(is_feature=True, status=Post.StatusChoices.PUBLISHED).order_by('-created_at')[:5]
         context['category_context'] = Category.objects.filter(status=BaseModel.StatusChoices.PUBLISHED).order_by('name')
-        context['slider_context'] = Post.objects.filter(is_cover=True, status=Post.StatusChoices.PUBLISHED).order_by('-created_at')
-        context['feature_post'] = Post.objects.filter(is_feature=True, status=Post.StatusChoices.PUBLISHED).order_by('-created_at')
+        context['socialmedia'] = SocialMedia.objects.last()
+        context['extend_blog_context'] = ExtendBlog.objects.filter(status=BaseModel.StatusChoices.PUBLISHED).order_by('-created_at')[:10]
         context['tag_context'] = Tag.objects.all().order_by('name')
         return context
 

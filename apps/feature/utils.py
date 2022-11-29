@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-def cover_image_directory_path(instance, filename):
+def extend_image_directory_path(instance, filename):
     _datetime = datetime.now()
     datetime_str_dir = _datetime.strftime("%Y-%m-%d")
     datetime_str_name = _datetime.strftime("%Y-%m-%d-%H-%M-%S")
