@@ -56,6 +56,7 @@ LOCALE_APPS = [
     'apps.about',
     'apps.contact',
     'apps.category',
+    'apps.feature',
 ]
 
 THIRD_PARTY_APPS = [

@@ -38,19 +38,6 @@
     </div>
     <!-- Row /- -->
     <!-- Pagination -->
-    <nav class="navigation pagination">
-        <h2 class="screen-reader-text">Posts navigation</h2>
-        <div class="nav-links">
-            <a class="prev page-numbers" href="#">Previous</a>
-            <span class="page-numbers current">
-										<span class="meta-nav screen-reader-text">Page </span>1
-									</span>
-            <a class="page-numbers" href="#"><span class="meta-nav screen-reader-text">Page </span>2</a>
-            <a class="page-numbers" href="#"><span class="meta-nav screen-reader-text">Page </span>3</a>
-            <a class="page-numbers" href="#"><span class="meta-nav screen-reader-text">Page </span>...</a>
-            <a class="page-numbers" href="#"><span class="meta-nav screen-reader-text">Page </span>6</a>
-            <a class="next page-numbers" href="#">Next</a>
-        </div>
-    </nav>
+    {% include 'blog/snippets/pagination.html' %}
     <!-- Pagination /- -->
 {% endblock %}

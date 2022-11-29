@@ -43,6 +43,9 @@ class Post(BaseModel):
     is_trending = models.BooleanField(
         default=False
     )
+    is_cover = models.BooleanField(
+        default=False
+    )
     tags = TaggableManager()
     publish = models.DateTimeField(
         default=timezone.now

@@ -4,10 +4,8 @@
 <aside class="widget widget_categories text-center">
     <h3 class="widget-title">Categories</h3>
     <ul>
-        <li><a href="#" title="Nature">Nature</a></li>
-        <li><a href="#" title="Technology">Technology</a></li>
-        <li><a href="#" title="Travel">Travel</a></li>
-        <li><a href="#" title="Sport">Sport</a></li>
-        <li><a href="#" title="Lifestyle">Lifestyle</a></li>
+        {% for context in category_context %}
+        <li><a href="#" title="Nature">{{ context.name }}</a></li>
+        {% endfor %}
     </ul>
 </aside>

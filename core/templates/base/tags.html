@@ -1,16 +1,11 @@
 {% load static %}
 
 <aside class="widget widget_tags_cloud">
-                            <h3 class="widget-title">Tags</h3>
-                            <div class="tagcloud">
-                                <a href="#" title="Fashion">Fashion</a>
-                                <a href="#" title="Travel">Travel</a>
-                                <a href="#" title="Nature">Nature</a>
-                                <a href="#" title="Technology">Technology</a>
-                                <a href="#" title="Sport">Sport</a>
-                                <a href="#" title="Weather">Weather</a>
-                                <a href="#" title="Trends">Trends</a>
-                                <a href="#" title="Lifestyle">Lifestyle</a>
-                                <a href="#" title="Gear">Gear</a>
-                            </div>
-                        </aside>
+    <h3 class="widget-title">Tags</h3>
+    <div class="tagcloud">
+        {% for tag in tag_context %}
+        <a href="#" title="Fashion">{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+</aside>
+

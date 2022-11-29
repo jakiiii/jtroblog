@@ -1,0 +1,57 @@
+<div>
+    {% if is_paginated %}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-numbers">
+                        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">Previous</a>
+                    </li>
+                    <li>
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                            {{ page_obj.previous_page_number }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-numbers disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <span class="page-link">{{ page_obj.number }}</span>
+                </li>
+
+                {% if page_obj.has_next %}
+                    <li class="page-numbers">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                            {{ page_obj.next_page_number }}
+                        </a>
+                    </li>
+                    <li class="page-numbers">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                {% else %}
+                    <li class="page-numbers disabled">
+                        <span class="page-link">Next</span>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+</div>
+
+
+{#<nav class="navigation pagination">#}
+{#    <h2 class="screen-reader-text">Posts navigation</h2>#}
+{#    <div class="nav-links">#}
+{#        <a class="prev page-numbers" href="#">Previous</a>#}
+{#        <span class="page-numbers current">#}
+{#            <span class="meta-nav screen-reader-text">Page </span>1#}
+{#        </span>#}
+{#        <a class="page-numbers" href="#"><span class="meta-nav screen-reader-text">Page </span>2</a>#}
+{#        <a class="page-numbers" href="#"><span class="meta-nav screen-reader-text">Page </span>3</a>#}
+{#        <a class="page-numbers" href="#"><span class="meta-nav screen-reader-text">Page </span>...</a>#}
+{#        <a class="page-numbers" href="#"><span class="meta-nav screen-reader-text">Page </span>6</a>#}
+{#        <a class="next page-numbers" href="#">Next</a>#}
+{#    </div>#}
+{#</nav>#}
