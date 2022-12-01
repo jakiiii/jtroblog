@@ -2,6 +2,8 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Row, Column, Div, Submit, HTML
 
+from apps.blog.models import Comment
+
 
 class EmailPostForm(forms.Form):
     name = forms.CharField(max_length=50)
@@ -35,3 +37,10 @@ class EmailPostForm(forms.Form):
                 Div(Submit('submit', 'Submit'), css_class="mt-4"),
             )
         )
+
+
+class CommentCreationForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ['name', 'email', 'body']

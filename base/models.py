@@ -12,8 +12,6 @@ class BaseModel(models.Model):
         DRAFT = 'DR', _('Draft')
         ARCHIVED = 'ARC', _('Archived')
 
-    created_by = models.ForeignKey(User, on_delete=models.RESTRICT, related_name="post_create")
-    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name="post_update")
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
 

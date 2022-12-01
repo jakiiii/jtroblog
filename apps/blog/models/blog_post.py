@@ -18,6 +18,18 @@ class PublishedManager(models.Manager):
 
 
 class Post(BaseModel):
+    created_by = models.ForeignKey(
+        User,
+        on_delete=models.RESTRICT,
+        related_name="post_create"
+    )
+    updated_by = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="post_update"
+    )
     author = models.ForeignKey(
         User,
         on_delete=models.RESTRICT,
@@ -74,12 +86,10 @@ class Post(BaseModel):
         })
 
     def get_absolute_share_url(self):
-        return reverse('blog:post_share', kwargs={
-            'slug': self.slug,
-            # 'year': self.publish.year,
-            # 'month': self.publish.month,
-            # 'day': self.publish.day
-        })
+        return reverse('blog:post_share', kwargs={'slug': self.slug})
+
+    def get_absolute_comment_url(self):
+        return reverse('blog:post_comment', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ('-publish',)

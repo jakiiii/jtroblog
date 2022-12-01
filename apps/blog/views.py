@@ -2,16 +2,17 @@ from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.decorators.http import require_POST
 from django.core.mail import send_mail
 
 from taggit.models import Tag
 
 from base.models import BaseModel
-from apps.blog.models import Post
+from apps.blog.models import Post, Comment
 from apps.category.models import Category
 from apps.feature.models import SocialMedia, ExtendBlog
 
-from apps.blog.forms import EmailPostForm
+from apps.blog.forms import EmailPostForm, CommentCreationForm
 
 EMAIL_ACCOUNT = settings.EMAIL_HOST_USER
 
@@ -45,6 +46,8 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['title'] = "Post Detail"
+        post_tags_ids = self.get_object().tags.values_list('id', flat=True)
+        context['similar_posts'] = Post.published.filter(tags__in=post_tags_ids).exclude(id=self.get_object().id)
         return context
 
 

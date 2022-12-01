@@ -21,12 +21,13 @@
             <div class="entry-footer">
                 <div class="tags">
                     {% for tag in post.tags.all %}
-                    <a href="#" title="Fashion"># {{ tag }}</a>
+                        <a href="#" title="Fashion"># {{ tag }}</a>
                     {% endfor %}
 
                 </div>
                 <ul class="social">
-                    <li><a href="{{ post.get_absolute_share_url }}" title="share_email"><i class="fa fa-envelope-o"></i></a></li>
+                    <li><a href="{{ post.get_absolute_share_url }}" title="share_email"><i class="fa fa-envelope-o"></i></a>
+                    </li>
                     <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#" title="Pinterest"><i class="fa fa-pinterest-p"></i></a></li>
@@ -53,120 +54,14 @@
     <div class="related-post">
         <h3>You May Also Like</h3>
         <div class="related-post-block">
+            {% for context in similar_posts %}
             <div class="related-post-box">
-                <a href="#"><img src="https://via.placeholder.com/170x113" alt="Post"/></a>
-                <span><a href="#" title="Travel">Travel</a></span>
-                <h3><a href="#" title="Traffic Jams Solved">Traffic Jams Solved</a></h3>
+                <a href="{{ context.get_absolute_url }}"><img src="{{ context.cover.url }}" style="width: 170px; height: 113px" alt="Post"/></a>
+                <span><a href="#" title="Travel">{{ context.category }}</a></span>
+                <h3><a href="{{ context.get_absolute_url }}" title="{{ context.title }}">{{ context.title }}</a></h3>
             </div>
-            <div class="related-post-box">
-                <a href="#"><img src="https://via.placeholder.com/170x113" alt="Post"/></a>
-                <span><a href="#" title="Science">Science</a></span>
-                <h3><a href="#" title="How Astronauts Live">How Astronauts Live</a></h3>
-            </div>
-            <div class="related-post-box">
-                <a href="#"><img src="https://via.placeholder.com/170x113" alt="Post"/></a>
-                <span><a href="#" title="Nature">Nature</a></span>
-                <h3><a href="#" title="White Sand">White Sand</a></h3>
-            </div>
-            <div class="related-post-box">
-                <a href="#"><img src="https://via.placeholder.com/170x113" alt="Post"/></a>
-                <span><a href="#" title="Lifestyle">Lifestyle</a></span>
-                <h3><a href="#" title="Sunset at Beach">Sunset at Beach</a></h3>
-            </div>
+            {% endfor %}
         </div>
-    </div><!-- Related Post /- -->
-    <!-- Comment Area -->
-    <div class="comments-area">
-        <h2 class="comments-title">3 Comments</h2>
-        <ol class="comment-list">
-            <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent">
-                <div class="comment-body">
-                    <footer class="comment-meta">
-                        <div class="comment-author vcard">
-                            <img alt="img" src="https://via.placeholder.com/70x70" class="avatar avatar-72 photo"/>
-                            <b class="fn">Alice Chaptman</b>
-                        </div>
-                        <div class="comment-metadata">
-                            <a href="#">10 hours ago</a>
-                        </div>
-                    </footer>
-                    <div class="comment-content">
-                        <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because
-                            it is pain, but because occasionally circumstances occur in which toil and pain can
-                            procure.</p>
-                    </div>
-                    <div class="reply">
-                        <a rel="nofollow" class="comment-reply-link" href="#" title="Reply">Reply</a>
-                    </div>
-                </div>
-                <ol class="children">
-                    <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent">
-                        <div class="comment-body">
-                            <footer class="comment-meta">
-                                <div class="comment-author vcard">
-                                    <img alt="img" src="https://via.placeholder.com/70x70" class="avatar avatar-72 photo"/>
-                                    <b class="fn">Droid Vader</b>
-                                </div>
-                                <div class="comment-metadata">
-                                    <a href="#">8 hours ago</a>
-                                </div>
-                            </footer>
-                            <div class="comment-content">
-                                <p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but
-                                    because those who do not know how to pursue pleasure rationally encounter
-                                    consequences that are extremely painful. Nor again is there anyone who loves.</p>
-                            </div>
-                            <div class="reply">
-                                <a rel="nofollow" class="comment-reply-link" href="#" title="Reply">Reply</a>
-                            </div>
-                        </div>
-                    </li>
-                </ol>
-            </li>
-            <li class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1">
-                <div class="comment-body">
-                    <footer class="comment-meta">
-                        <div class="comment-author vcard">
-                            <img alt="img" src="https://via.placeholder.com/70x70" class="avatar avatar-72 photo"/>
-                            <b class="fn">Giana Blankard</b>
-                        </div>
-                        <div class="comment-metadata">
-                            <a href="#">16 hours ago</a>
-                        </div>
-                    </footer>
-                    <div class="comment-content">
-                        <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
-                            was born and I will give you a complete account of the system, and expound the actual
-                            teachings of the great explorer of the truth, the master-builder of human happiness.</p>
-                    </div>
-                    <div class="reply">
-                        <a rel="nofollow" class="comment-reply-link" href="#" title="Reply">Reply</a>
-                    </div>
-                </div>
-            </li>
-        </ol><!-- comment-list /- -->
-        <!-- Comment Form -->
-        <div class="comment-respond">
-            <h2 class="comment-reply-title">Leave a Reply</h2>
-            <form method="post" class="comment-form">
-                <p class="comment-form-author">
-                    <input id="author" name="author" placeholder="Name" size="30" maxlength="245" required="required"
-                           type="text"/>
-                </p>
-                <p class="comment-form-email">
-                    <input id="email" name="email" placeholder="Email" required="required" type="email"/>
-                </p>
-                <p class="comment-form-url">
-                    <input id="url" name="url" placeholder="Website" required="required" type="url"/>
-                </p>
-                <p class="comment-form-comment">
-                    <textarea id="comment" name="comment" placeholder="Enter your comment here..." rows="8"
-                              required="required"></textarea>
-                </p>
-                <p class="form-submit">
-                    <input name="submit" class="submit" value="Post Comment" type="submit"/>
-                </p>
-            </form>
-        </div><!-- Comment Form /- -->
-    </div><!-- Comment Area /- -->
+    </div>
+    <!-- Related Post /- -->
 {% endblock %}
