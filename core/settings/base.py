@@ -18,9 +18,18 @@ from pathlib import Path
 from dj_database_url import parse as db_url
 from django.contrib.messages import constants as messages
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from app_libs.logger_config import LOGGING
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Email server configuration
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get("JTRO_EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("JTRO_EMAIL_HOST_PASSWORD")
+EMAIL_PORT = os.environ.get("JTRO_EMAIL_PORT")
+EMAIL_USE_TLS = os.environ.get("JTRO_EMAIL_USE_TLS")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

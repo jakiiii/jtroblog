@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<form class="row">
+            <div class="col-md-6 form-group">
+                <input type="text" class="form-control" placeholder="Your Name (required)" name="contact-name"
+                       id="input_name" required>
+            </div>
+            <div class="col-md-6 form-group">
+                <input type="text" class="form-control" placeholder="Your Email (required)" name="contact-email"
+                       id="input_email" required>
+            </div>
+            <div class="col-md-12 form-group">
+                <input type="text" class="form-control" placeholder="Subject" name="contact-subject" id="input_subject">
+            </div>
+            <div class="col-md-12 form-group">
+                <textarea class="form-control" placeholder="Your message..." rows="5" name="textarea-message"
+                          id="textarea_message"></textarea>
+            </div>
+            <div class="col-md-12 form-group">
+                <button id="btn_submit" name="submit" class="submit">Send</button>
+            </div>
+            <div id="alert-msg" class="alert-msg"></div>
+        </form>

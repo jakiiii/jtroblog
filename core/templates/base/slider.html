@@ -21,8 +21,8 @@
                     data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10=""
                     data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ context.cover.url }}" alt="{{ context.title }}" title="slide-1" width="1920"
-                         height="600"
+                    <img src="{{ context.cover.url }}" alt="{{ context.title }}" title="slide-1" width="100%"
+                         style="width: 100%;"
                          data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
                          class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
@@ -67,23 +67,23 @@
                        data-paddingleft="[0,0,0,0]">{{ context.title }} and Advanced</a>
 
                     <!-- LAYER NR. 6 -->
-                    <a class="slidecnt3 tp-caption rev-btn tp-layer-selectable" href="{{ context.get_absolute_url }}" target="_self"
-                       rel="nofollow" id="slide-28-layer-3"
-                       data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                       data-y="['middle','middle','middle','middle']" data-voffset="['80','73','73','59']"
-                       data-width="none"
-                       data-height="none"
-                       data-whitespace="nowrap"
-                       data-type="button"
-                       data-actions=''
-                       data-responsive_offset="on"
-                       data-responsive="off"
-                       data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power2.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(21,21,21);bg:rgba(255,255,255,1);"}]'
-                       data-textAlign="['inherit','inherit','inherit','inherit']"
-                       data-paddingtop="[2,2,2,2]"
-                       data-paddingright="[20,20,20,20]"
-                       data-paddingbottom="[0,0,0,0]"
-                       data-paddingleft="[20,20,20,20]">READ MORE </a>
+{#                    <a class="slidecnt3 tp-caption rev-btn tp-layer-selectable" href="{{ context.get_absolute_url }}" target="_self"#}
+{#                       rel="nofollow" id="slide-28-layer-3"#}
+{#                       data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"#}
+{#                       data-y="['middle','middle','middle','middle']" data-voffset="['80','73','73','59']"#}
+{#                       data-width="none"#}
+{#                       data-height="none"#}
+{#                       data-whitespace="nowrap"#}
+{#                       data-type="button"#}
+{#                       data-actions=''#}
+{#                       data-responsive_offset="on"#}
+{#                       data-responsive="off"#}
+{#                       data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power2.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(21,21,21);bg:rgba(255,255,255,1);"}]'#}
+{#                       data-textAlign="['inherit','inherit','inherit','inherit']"#}
+{#                       data-paddingtop="[2,2,2,2]"#}
+{#                       data-paddingright="[20,20,20,20]"#}
+{#                       data-paddingbottom="[0,0,0,0]"#}
+{#                       data-paddingleft="[20,20,20,20]">READ MORE </a>#}
                 </li>
                 {% endfor %}
             </ul>

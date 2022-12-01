@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static crispy_forms_tags %}
+{% block title %}{{ title }} || {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+    {% if sent %}
+        <h1>E-mail successfully sent</h1>
+        <p>
+            "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
+        </p>
+    {% else %}
+        <div class="card">
+            <div class="card-header">
+                <h4>Share "{{ post.title }}" by e-mail</h4>
+            </div>
+            <div class="card-body">
+                {% crispy form %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -73,6 +73,14 @@ class Post(BaseModel):
             'day': self.publish.day
         })
 
+    def get_absolute_share_url(self):
+        return reverse('blog:post_share', kwargs={
+            'slug': self.slug,
+            # 'year': self.publish.year,
+            # 'month': self.publish.month,
+            # 'day': self.publish.day
+        })
+
     class Meta:
         ordering = ('-publish',)
         indexes = [
