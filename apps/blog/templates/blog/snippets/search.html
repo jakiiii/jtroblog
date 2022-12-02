@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static crispy_forms_tags %}
+{% load blog_tags %}
+{% block title %}{{ title }} || {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            {% for context in results %}
+            <p><a href="{{ context.get_absolute_url }}" class="text-dark">{{ context.title }}</a></p>
+                {% empty %}
+                <h4 class="text-center">No search result matched!</h4>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

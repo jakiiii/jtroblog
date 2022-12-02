@@ -4,6 +4,8 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.decorators.http import require_POST
 from django.core.mail import send_mail
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
+from django.contrib.postgres.search import TrigramSimilarity
 
 from taggit.models import Tag
 
@@ -12,7 +14,7 @@ from apps.blog.models import Post, Comment
 from apps.category.models import Category
 from apps.feature.models import SocialMedia, ExtendBlog
 
-from apps.blog.forms import EmailPostForm, CommentCreationForm
+from apps.blog.forms import EmailPostForm, CommentCreationForm, SearchForm
 
 EMAIL_ACCOUNT = settings.EMAIL_HOST_USER
 
@@ -69,5 +71,37 @@ def post_share(request, slug):
         'post': post,
         'form': form,
         'send': sent
+    }
+    return render(request, template_name, context)
+
+
+def post_search(request):
+    template_name = 'blog/snippets/search.html'
+    form = SearchForm()
+    query = None
+    results = []
+
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            # search_vector = SearchVector('title', 'description')
+            search_vector = SearchVector('title', weight='A')  + SearchVector('description', weight='B')
+            search_query = SearchQuery(query)
+            # results = Post.published.annotate(search=search_vector,rank=SearchRank(search_vector, search_query)).filter(rank__gte=0.3).order_by('-rank')
+            #######################
+            # psql db_jblog
+            # CREATE EXTENSION pg_trgm;
+            # CREATE EXTENSION
+            # import method in views.py
+            # from django.contrib.postgres.search import TrigramSimilarity
+            ########################
+            results = Post.published.annotate(similarity=TrigramSimilarity('title', query)).filter(similarity__gt=0.1).order_by('-similarity')
+
+
+    context = {
+        'form': form,
+        'query': query,
+        'results': results
     }
     return render(request, template_name, context)

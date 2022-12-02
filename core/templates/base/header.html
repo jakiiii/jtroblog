@@ -23,7 +23,8 @@
                         <ul class="top-right user-info">
                             <li>
                                 <a href="#search-box" data-toggle="collapse" class="search collapsed" title="Search">
-                                    <i class="pe-7s-search sr-ic-open"></i><i class="pe-7s-close sr-ic-close"></i></a>
+                                    <i class="pe-7s-search sr-ic-open"></i><i class="pe-7s-close sr-ic-close"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -62,9 +63,9 @@
     <!-- Search Box -->
     <div class="search-box collapse" id="search-box">
         <div class="container">
-            <form>
+            <form method="get" action="{% url 'blog:post_search' %}">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search..." required>
+                    <input type="text" name="query" class="form-control" placeholder="Search..." required>
                     <span class="input-group-btn">
 						<button class="btn btn-secondary" type="submit"><i class="pe-7s-search"></i></button>
 					</span>
