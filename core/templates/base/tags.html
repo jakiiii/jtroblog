@@ -1,8 +1,11 @@
+{% load blog_tags %}
 {% load static %}
 
 <aside class="widget widget_tags_cloud">
     <h3 class="widget-title">Tags</h3>
     <div class="tagcloud">
+{#        I've written {% total_posts %} posts so far.#}
+{#        <hr/>#}
         {% for tag in tag_context %}
         <a href="#" title="Fashion">{{ tag.name }}</a>
         {% endfor %}

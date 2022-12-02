@@ -1,0 +1,18 @@
+{% load static %}
+{% load blog_tags %}
+
+
+<aside class="widget widget_latestposts">
+    <h3 class="widget-title">Latest Posts</h3>
+    {% for context in latest_posts %}
+    <div class="latest-content">
+        <a href="{{ context.get_absolute_url }}" title="Recent Posts">
+            <i><img src="{{ context.cover.url }}" style="width: 100px; height: 80px" class="wp-post-image" alt="{{ context.title }}"/></i>
+        </a>
+        <h5>
+            <a title="Beautiful Landscape View of Rio de Janeiro" href="#">{{ context.title }}</a>
+        </h5>
+        <span><a href="#">{{ context.publish|date }}</a></span>
+    </div>
+    {% endfor %}
+</aside>

@@ -1,3 +1,4 @@
+{% load blog_tags %}
 {% load static %}
 <!DOCTYPE html>
 <!--[if lt IE 7 ]>
@@ -88,8 +89,12 @@
                     <!-- Widget Area -->
                     <div class="col-lg-4 col-md-6 widget-area">
                         <!-- Widget : Latest Post -->
-                        {% include 'base/popular.html' %}
+                        {% show_latest_posts 5 %}
+{#                        {% include 'base/latest.html' %}#}
                         <!-- Widget : Latest Post /- -->
+                        <!-- Widget : Popular Post -->
+                        {% include 'base/popular.html' %}
+                        <!-- Widget : Popular Post /- -->
                         <!-- Widget : Categories -->
                         {% include 'base/categories.html' %}
                         <!-- Widget : Categories /- -->
@@ -100,7 +105,7 @@
                         {% include 'base/socialmedia.html' %}
                         <!-- Widget : Follow Us /- -->
                         <!-- Widget : Newsletter -->
-                        {% include 'base/subscribe.html' %}
+{#                        {% include 'base/subscribe.html' %}#}
                         <!-- Widget : Newsletter /- -->
                         <!-- Widget : Tags -->
                         {% include 'base/tags.html' %}

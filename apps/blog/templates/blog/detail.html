@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static crispy_forms_tags %}
+{% load blog_tags %}
 {% block title %}{{ title }} || {{ block.super }}{% endblock title %}
 
 
@@ -17,6 +18,7 @@
                     <span class="post-date">{{ post.publish|date:"M d, Y" }}</span>
                 </div>
             </div>
+{#            <p>{{ post.description|markdown|truncatewords_html:30 }}</p>#}
             <p>{{ post.description|safe }}</p>
             <div class="entry-footer">
                 <div class="tags">

@@ -11,3 +11,4 @@ django-widget-tweaks==1.4.12
 django-crispy-forms==1.14.0
 django-ckeditor==6.5.1
 django-taggit==3.1.0
+markdown==3.4.1
