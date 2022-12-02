@@ -5,15 +5,11 @@
 
 {% block content %}
     <div class="contact-info">
-        <img src="https://via.placeholder.com/1170x500" alt="contact">
+        <img src="{{ contact_info.image.url }}" style="width: 1170px; height: 500px" alt="{{ contact_info.title }}">
         <div class="block-title">
-            <h3>Contact Us</h3>
+            <h3>{{ contact_info.title }}</h3>
         </div>
-        <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is
-            untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be
-            welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the
-            obligations of business it will frequently occur that pleasures have to be repudiated and annoyances
-            accepted.</p>
+        <p>{{ contact_info.body }}</p>
     </div>
     <div class="contact-form">
         {% include 'contact/post/share.html' %}
