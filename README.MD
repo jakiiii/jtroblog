@@ -7,7 +7,9 @@
 - Clone the repo: `https://github.com/jakiiii/jtroblog.git`
 - Entry the project directory: `cd jtroblog`
 - Create Virtual Environment: `python3 -m venv venv`
+- Activate environment: `source venv/bin/activate`
 - Install requirements: `pip install - requirements.txt`
+
 ### Step - 02
 *Note: Here we use Postgres database.*
 
