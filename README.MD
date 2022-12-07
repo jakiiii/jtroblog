@@ -8,7 +8,6 @@
 - Entry the project directory: `cd jtroblog`
 - Create Virtual Environment: `python3 -m venv venv`
 - Install requirements: `pip install - requirements.txt`
-
 ### Step - 02
 *Note: Here we use Postgres database.*
 
